@@ -1,0 +1,180 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!--    <link rel="stylesheet" href="styles.css">-->
+    <title>Sales Prediction</title>
+</head>
+
+<style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    color:black;
+
+}
+
+body{
+    background: url("https://cdn.pixabay.com/photo/2018/01/12/16/16/growth-3078544_960_720.png") no-repeat top center;
+    padding: 0 10px;
+    background-size: cover;
+}
+
+.wrapper{
+
+    max-width: 500px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    margin: 20px auto;
+    padding: 30px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 1.25);
+
+}
+
+
+.wrapper .title{
+
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #fec107;
+    text-transform: uppercase;
+    text-align: center;
+
+}
+
+
+.wrapper .form{
+
+    width: 100%;
+
+}
+
+.wrapper .form .input_field{
+
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.wrapper .form .input_field label{
+
+    width:80px;
+    font: bold;
+    color: wheat;
+    margin-right: 20px;
+    font-size: 14px;
+
+}
+
+
+.wrapper .form .input_field input{
+
+    width: 200px;
+
+}
+
+
+</style>
+
+
+
+<body>
+<form action="{{ url_for('predict')}}" method="post">
+    <div class="wrapper">
+        <div class="title">
+            <h1 style="color: white;">Sales Prediction</h1>
+        </div>
+        <div class="form">
+
+            <div class="input_field">
+               <label>HOLIDAY</label>
+                <input type="number" id="holiday" min="0" max="1" name="holiday" class="input_text">
+                <br/>&nbsp;&nbsp;<i style="font-size: 10px; color: white;">(YES: 1 & NO: 0)</i>
+            </div>
+
+            <div class="input_field">
+                <label>Discount</label>
+                 <input type="number" min="0" max="1" name="discount" id="discount" class="input_text">
+                 <br/>&nbsp;&nbsp;<i style="font-size: 10px; color: white;">(YES: 1 & NO: 0)</i>
+             </div>
+
+             <div class="input_field">
+                <label>Order</label>
+                 <input type="number"  name="order" id="order" min="0" max="500" class="input_text">
+                 <br/>&nbsp;&nbsp;<i style="font-size: 10px; color: white;">(Enter Number Of Orders)</i>
+             </div>
+
+             <div class="input_field">
+                <label>Date</label>
+		<input type="date" id="date" name="date"
+       		placeholder="dd-mm-yyyy" value=""
+       		min="2022-01-01" max="2025-12-31">
+		&nbsp;&nbsp;<i style="font-size: 10px; color: white;">(Select The Date)</i>
+             </div>
+
+
+             <div class="input_field">
+                <label>Store Type</label>
+		<select name="Store_Type" id="Store_Type" required="required">
+                <option value="Store_Type_S1">Store Type 1</option>
+		<option value="Store_Type_S2">Store Type 2</option>
+		<option value="Store_Type_S3">Store Type 3</option>
+		<option value="Store_Type_S4">Store Type 4</option>		
+		</select>
+             </div>
+
+
+	     <div class="input_field">
+                <label>Location Type</label>
+		<select name="Location_Type" id="Location_Type" required="required">
+                <option value="Location_Type_S1">Location Type 1</option>
+		<option value="Location_Type_S2">Location Type 2</option>
+		<option value="Location_Type_S3">Location Type 3</option>
+		<option value="Location_Type_S4">Location Type 4</option>
+		<option value="Location_Type_S5">Location Type 5</option>		
+		</select>
+             </div>		
+
+	
+	    <div class="input_field">
+                <label>Region Code</label>
+		<select name="Region_Code" id="Region_Code" required="required">
+                <option value="Region_Code_R1">Region Code 1</option>
+		<option value="Region_Code_R2">Region Code 2</option>
+		<option value="Region_Code_R3">Region Code 3</option>
+		<option value="Region_Code_R4">Region Code 4</option>		
+		</select>
+             </div>	
+
+		
+
+             <div class="input_field">
+                <input type="submit" style="color:black; background: skyblue;" id="submit" value="SUBMIT">
+            </div>
+
+
+            <div>
+                <center>
+                    <h2 style="color: white; margin-bottom:10px;">
+                        {{prediction_text}}
+                    </h2>
+                </center>
+            </div>
+
+
+
+        </div>
+    </div>
+
+</form>
+</body>
+</html>
