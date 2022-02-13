@@ -19,4 +19,3 @@ Marketing & Sales
 - HeroKu
 
 # Application Interface:
-![](img1.png)
