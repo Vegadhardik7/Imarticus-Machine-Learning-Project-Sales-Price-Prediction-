@@ -15,8 +15,6 @@ This is an end-to-end project where based on some of the important features such
 - Sales data for 18 months from 365 stores of WOMart is available along with information on Store Type, Location Type for each store, Region Code for every store, Discount provided by the store on every day, Number of Orders everyday etc.
 
 - Your task is to predict the sales revenue based on suitable features.
- 
-![image](https://user-images.githubusercontent.com/60744425/155868858-52e9424b-1c1a-4feb-a2a0-42347a601273.png)
 
 
 # Web-App URL:
